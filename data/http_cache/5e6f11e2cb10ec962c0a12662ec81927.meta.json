@@ -1,0 +1,26 @@
+{
+  "status_code": 200,
+  "headers": {
+    "content-type": "application/json;charset=utf-8",
+    "x-request-id": "UNK-9b54c919-6ff8-4df7-b237-4f210293fe1a",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "access-control-expose-headers": "Content-Disposition",
+    "x-xss-protection": "1; mode=block",
+    "access-control-allow-origin": "*",
+    "access-control-allow-methods": "OPTIONS,GET",
+    "x-frame-options": "SAMEORIGIN",
+    "pragma": "no-cache",
+    "access-control-allow-headers": "Content-Type,Content-Disposition",
+    "content-encoding": "gzip",
+    "x-content-type-options": "nosniff",
+    "x-correlation-id": "43cdb7d0-8562-11f0-8035-0656419ddc39",
+    "content-length": "3981",
+    "cache-control": "no-store",
+    "date": "Sat, 30 Aug 2025 05:29:14 GMT",
+    "connection": "keep-alive",
+    "vary": "Accept-Encoding"
+  },
+  "url": "https://markets.newyorkfed.org/api/rates/all/search.json?startDate=2018-09-30&endDate=2018-12-28",
+  "method": "GET",
+  "cached_at": "2025-08-30T14:29:14.011050"
+}

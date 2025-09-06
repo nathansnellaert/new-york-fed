@@ -1,0 +1,163 @@
+{
+  "dataset": "repo_operations",
+  "timestamp": "2025-08-30T14:33:17.446971",
+  "row_count": 0,
+  "column_count": 23,
+  "memory_usage_mb": 0.0,
+  "columns": [
+    {
+      "name": "operation_date",
+      "type": "date32[day]",
+      "nullable": true,
+      "null_count": 0
+    },
+    {
+      "name": "operation_id",
+      "type": "string",
+      "nullable": true,
+      "null_count": 0,
+      "cardinality": 0,
+      "sample_values": []
+    },
+    {
+      "name": "operation_type",
+      "type": "string",
+      "nullable": true,
+      "null_count": 0,
+      "cardinality": 0,
+      "sample_values": []
+    },
+    {
+      "name": "operation_method",
+      "type": "string",
+      "nullable": true,
+      "null_count": 0,
+      "cardinality": 0,
+      "sample_values": []
+    },
+    {
+      "name": "settlement_date",
+      "type": "date32[day]",
+      "nullable": true,
+      "null_count": 0
+    },
+    {
+      "name": "maturity_date",
+      "type": "date32[day]",
+      "nullable": true,
+      "null_count": 0
+    },
+    {
+      "name": "term",
+      "type": "string",
+      "nullable": true,
+      "null_count": 0,
+      "cardinality": 0,
+      "sample_values": []
+    },
+    {
+      "name": "term_calendar_days",
+      "type": "int32",
+      "nullable": true,
+      "null_count": 0
+    },
+    {
+      "name": "settlement_type",
+      "type": "string",
+      "nullable": true,
+      "null_count": 0,
+      "cardinality": 0,
+      "sample_values": []
+    },
+    {
+      "name": "security_type",
+      "type": "string",
+      "nullable": true,
+      "null_count": 0,
+      "cardinality": 0,
+      "sample_values": []
+    },
+    {
+      "name": "amount_submitted",
+      "type": "double",
+      "nullable": true,
+      "null_count": 0
+    },
+    {
+      "name": "amount_accepted",
+      "type": "double",
+      "nullable": true,
+      "null_count": 0
+    },
+    {
+      "name": "total_amount_submitted",
+      "type": "double",
+      "nullable": true,
+      "null_count": 0
+    },
+    {
+      "name": "total_amount_accepted",
+      "type": "double",
+      "nullable": true,
+      "null_count": 0
+    },
+    {
+      "name": "participating_counterparties",
+      "type": "int32",
+      "nullable": true,
+      "null_count": 0
+    },
+    {
+      "name": "accepted_counterparties",
+      "type": "int32",
+      "nullable": true,
+      "null_count": 0
+    },
+    {
+      "name": "offering_rate",
+      "type": "double",
+      "nullable": true,
+      "null_count": 0
+    },
+    {
+      "name": "award_rate",
+      "type": "double",
+      "nullable": true,
+      "null_count": 0
+    },
+    {
+      "name": "weighted_average_rate",
+      "type": "double",
+      "nullable": true,
+      "null_count": 0
+    },
+    {
+      "name": "minimum_bid_rate",
+      "type": "double",
+      "nullable": true,
+      "null_count": 0
+    },
+    {
+      "name": "maximum_bid_rate",
+      "type": "double",
+      "nullable": true,
+      "null_count": 0
+    },
+    {
+      "name": "release_time",
+      "type": "string",
+      "nullable": true,
+      "null_count": 0,
+      "cardinality": 0,
+      "sample_values": []
+    },
+    {
+      "name": "close_time",
+      "type": "string",
+      "nullable": true,
+      "null_count": 0,
+      "cardinality": 0,
+      "sample_values": []
+    }
+  ]
+}
