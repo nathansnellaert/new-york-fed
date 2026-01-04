@@ -1,8 +1,8 @@
 """Transform New York Fed reference rates data."""
 
+from datetime import datetime
 import pyarrow as pa
 from subsets_utils import load_raw_json, upload_data, publish
-from utils import parse_date, parse_number
 from .test import test
 
 DATASET_ID = "nyf_reference_rates"
@@ -37,6 +37,19 @@ SCHEMA = pa.schema([
     pa.field("target_rate_from", pa.float64()),
     pa.field("target_rate_to", pa.float64())
 ])
+
+
+def parse_date(date_str):
+    return datetime.strptime(date_str, "%Y-%m-%d").date()
+
+
+def parse_number(value):
+    if value is None or value == "NA":
+        return None
+    try:
+        return float(value)
+    except (ValueError, TypeError):
+        return None
 
 
 def process_rate_record(rate_data):

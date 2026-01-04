@@ -1,8 +1,8 @@
 """Transform New York Fed AMBS operations data."""
 
+from datetime import datetime
 import pyarrow as pa
 from subsets_utils import load_raw_json, upload_data, publish
-from utils import parse_date, parse_number
 from .test import test
 
 DATASET_ID = "nyf_ambs_operations"
@@ -43,6 +43,23 @@ SCHEMA = pa.schema([
     pa.field("close_time", pa.string()),
     pa.field("inclusion_flag", pa.string())
 ])
+
+
+def parse_date(date_str):
+    if not date_str:
+        return None
+    return datetime.strptime(date_str, "%Y-%m-%d").date()
+
+
+def parse_number(value):
+    if value is None or value == "" or value == "NA":
+        return None
+    try:
+        if isinstance(value, str):
+            value = value.replace(",", "")
+        return float(value)
+    except (ValueError, TypeError):
+        return None
 
 
 def run():

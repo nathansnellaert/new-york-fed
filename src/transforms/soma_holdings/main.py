@@ -1,8 +1,8 @@
 """Transform New York Fed SOMA holdings data."""
 
+from datetime import datetime
 import pyarrow as pa
 from subsets_utils import load_raw_json, upload_data, publish
-from utils import parse_date, parse_number
 from .test import test
 
 DATASET_ID = "nyf_soma_holdings"
@@ -39,6 +39,26 @@ SCHEMA = pa.schema([
     pa.field("change_from_prior_week", pa.float64()),
     pa.field("change_from_prior_year", pa.float64())
 ])
+
+
+def parse_date(date_str):
+    if not date_str:
+        return None
+    for fmt in ["%Y-%m-%d", "%m/%d/%Y"]:
+        try:
+            return datetime.strptime(date_str, fmt).date()
+        except ValueError:
+            continue
+    return None
+
+
+def parse_number(value):
+    if value is None or value == "" or value == "NA":
+        return None
+    try:
+        return float(value)
+    except (ValueError, TypeError):
+        return None
 
 
 def determine_security_type(security_desc):

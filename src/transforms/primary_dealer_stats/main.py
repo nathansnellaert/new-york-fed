@@ -3,7 +3,6 @@
 from datetime import datetime
 import pyarrow as pa
 from subsets_utils import load_raw_json, upload_data, publish
-from utils import parse_date
 from .test import test
 
 DATASET_ID = "nyf_primary_dealer_stats"
@@ -45,6 +44,10 @@ SCHEMA = pa.schema([
     pa.field("position_type", pa.string()),
     pa.field("value_billions", pa.float64())
 ])
+
+
+def parse_date(date_str):
+    return datetime.strptime(date_str, "%Y-%m-%d").date()
 
 
 def parse_value(value):
