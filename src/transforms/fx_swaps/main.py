@@ -1,8 +1,8 @@
 """Transform New York Fed FX swaps data."""
 
-from datetime import datetime
 import pyarrow as pa
 from subsets_utils import load_raw_json, upload_data, publish
+from utils import parse_date, parse_timestamp, parse_bool
 from .test import test
 
 DATASET_ID = "nyf_fx_swaps"
@@ -39,30 +39,6 @@ SCHEMA = pa.schema([
     pa.field("is_small_value", pa.bool_()),
     pa.field("last_updated", pa.timestamp('s'))
 ])
-
-
-def parse_date(date_str):
-    if not date_str:
-        return None
-    return datetime.strptime(date_str, "%Y-%m-%d").date()
-
-
-def parse_timestamp(timestamp_str):
-    if not timestamp_str:
-        return None
-    try:
-        return datetime.strptime(timestamp_str, "%Y-%m-%d %H:%M:%S")
-    except ValueError:
-        try:
-            return datetime.strptime(timestamp_str, "%Y-%m-%d %H:%M")
-        except ValueError:
-            return None
-
-
-def parse_bool(value):
-    if value is None or value == "":
-        return None
-    return str(value).lower() in ['true', '1', 'yes']
 
 
 def run():
