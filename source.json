@@ -1,0 +1,9 @@
+{
+  "id": "new_york_fed",
+  "name": "Federal Reserve Bank of New York",
+  "description": "The Federal Reserve Bank of New York provides critical financial market data including reference rates (EFFR, SOFR), system open market account holdings, and primary dealer statistics.",
+  "url": "https://www.newyorkfed.org",
+  "logo": "https://www.newyorkfed.org/favicon.ico",
+  "terms_of_use": "https://www.newyorkfed.org/markets/opolicy/operating_policy_130329",
+  "source_type": "government"
+}

@@ -1,0 +1,80 @@
+{
+  "id": "ny_fed_reference_rates",
+  "title": "NY Fed Reference Rates",
+  "description": "Daily reference rates published by the Federal Reserve Bank of New York including EFFR (Effective Federal Funds Rate), OBFR (Overnight Bank Funding Rate), SOFR (Secured Overnight Financing Rate), BGCR (Broad General Collateral Rate), and TGCR (Tri-Party General Collateral Rate)",
+  "license": "Other",
+  "source_id": "new_york_fed",
+  "source_code": "https://github.com/subsets-platform/new-york-fed",
+  "columns": [
+    {
+      "id": "date",
+      "description": "The date for which the rates are reported",
+      "type": "date",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "rate_type",
+      "description": "The type of reference rate (EFFR, OBFR, SOFR, BGCR, TGCR)",
+      "type": "dimension",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "percentile_1",
+      "description": "1st percentile of the rate distribution",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "percentile_25",
+      "description": "25th percentile of the rate distribution",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "percentile_75",
+      "description": "75th percentile of the rate distribution",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "percentile_99",
+      "description": "99th percentile of the rate distribution",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "rate",
+      "description": "The published reference rate value",
+      "type": "double",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "volume_billions",
+      "description": "Trading volume in billions of dollars",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "target_rate_from",
+      "description": "Lower bound of the target rate range",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "target_rate_to",
+      "description": "Upper bound of the target rate range",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    }
+  ]
+}

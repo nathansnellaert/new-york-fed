@@ -1,0 +1,87 @@
+{
+  "id": "ny_fed_soma_holdings",
+  "title": "NY Fed SOMA Holdings",
+  "description": "System Open Market Account (SOMA) holdings of treasury and agency securities held by the Federal Reserve Bank of New York",
+  "license": "Other",
+  "source_id": "new_york_fed",
+  "source_code": "https://github.com/subsets-platform/new-york-fed",
+  "columns": [
+    {
+      "id": "as_of_date",
+      "description": "The date of the holdings snapshot",
+      "type": "date",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "security_type",
+      "description": "Type of security (Treasury Bill, Treasury Note, Treasury Bond, Agency Debt, etc.)",
+      "type": "dimension",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "cusip",
+      "description": "CUSIP identifier for the security",
+      "type": "string",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "security_description",
+      "description": "Description of the security",
+      "type": "string",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "maturity_date",
+      "description": "Maturity date of the security",
+      "type": "date",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "issuer",
+      "description": "Issuer of the security",
+      "type": "string",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "coupon_rate",
+      "description": "Coupon rate of the security",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "par_value",
+      "description": "Par value of holdings in dollars",
+      "type": "double",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "percent_outstanding",
+      "description": "Percentage of total outstanding amount held",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "change_from_prior_week",
+      "description": "Change in par value from prior week in dollars",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "change_from_prior_year",
+      "description": "Change in par value from prior year in dollars",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    }
+  ]
+}

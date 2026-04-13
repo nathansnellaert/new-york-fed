@@ -1,0 +1,115 @@
+{
+  "id": "ny_fed_securities_lending",
+  "title": "NY Fed Securities Lending Operations",
+  "description": "Federal Reserve Bank of New York securities lending program operations data including loan amounts, rates, and outstanding balances",
+  "license": "Other",
+  "source_id": "new_york_fed",
+  "source_code": "https://github.com/subsets-platform/new-york-fed",
+  "columns": [
+    {
+      "id": "operation_date",
+      "description": "Date when the operation was conducted",
+      "type": "date",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "operation_id",
+      "description": "Unique identifier for the operation",
+      "type": "string",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "settlement_date",
+      "description": "Date when the securities settle",
+      "type": "date",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "maturity_date",
+      "description": "Date when the loan matures",
+      "type": "date",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "cusip",
+      "description": "CUSIP identifier for the security",
+      "type": "string",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "security_description",
+      "description": "Description of the security",
+      "type": "string",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "par_amount_submitted",
+      "description": "Par amount submitted for lending in dollars",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "par_amount_accepted",
+      "description": "Par amount accepted for lending in dollars",
+      "type": "double",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "weighted_average_rate",
+      "description": "Weighted average lending rate in percent",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "soma_holdings",
+      "description": "Total SOMA holdings of the security in dollars",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "theoretical_available",
+      "description": "Theoretical amount available to borrow in dollars",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "actual_available",
+      "description": "Actual amount available to borrow in dollars",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "outstanding_loans",
+      "description": "Amount of outstanding loans in dollars",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "release_time",
+      "description": "Time when operation was released",
+      "type": "string",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "close_time",
+      "description": "Time when operation closed",
+      "type": "string",
+      "nullable": true,
+      "unique": false
+    }
+  ]
+}

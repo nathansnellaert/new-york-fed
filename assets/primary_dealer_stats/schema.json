@@ -1,0 +1,59 @@
+{
+  "id": "ny_fed_primary_dealer_stats",
+  "title": "NY Fed Primary Dealer Statistics",
+  "description": "Weekly statistics on primary dealer positions and financing activities in U.S. government securities, corporate securities, and mortgage-backed securities",
+  "license": "Other",
+  "source_id": "new_york_fed",
+  "source_code": "https://github.com/subsets-platform/new-york-fed",
+  "columns": [
+    {
+      "id": "week_ending",
+      "description": "Wednesday date for which the statistics are reported",
+      "type": "date",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "series_name",
+      "description": "Name of the statistical series",
+      "type": "string",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "series_code",
+      "description": "Code identifier for the statistical series",
+      "type": "string",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "asset_type",
+      "description": "Type of asset (Treasury, Agency, Corporate, MBS)",
+      "type": "dimension",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "maturity_bucket",
+      "description": "Maturity classification (e.g., 3 years or less, 3-6 years, 6+ years)",
+      "type": "dimension",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "position_type",
+      "description": "Type of position (Long, Short, Net)",
+      "type": "dimension",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "value_billions",
+      "description": "Value in billions of dollars",
+      "type": "double",
+      "nullable": false,
+      "unique": false
+    }
+  ]
+}

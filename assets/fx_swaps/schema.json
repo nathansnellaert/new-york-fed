@@ -1,0 +1,87 @@
+{
+  "id": "ny_fed_fx_swaps",
+  "title": "NY Fed Foreign Exchange Swaps",
+  "description": "Federal Reserve Bank of New York central bank liquidity swap operations with foreign central banks",
+  "license": "Other",
+  "source_id": "new_york_fed",
+  "source_code": "https://github.com/subsets-platform/new-york-fed",
+  "columns": [
+    {
+      "id": "trade_date",
+      "description": "Date when the swap was traded",
+      "type": "date",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "settlement_date",
+      "description": "Date when the swap settles",
+      "type": "date",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "maturity_date",
+      "description": "Date when the swap matures",
+      "type": "date",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "operation_type",
+      "description": "Type of swap operation (U.S. Dollar Liquidity Swap, Non-U.S. Dollar Liquidity Swap)",
+      "type": "dimension",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "counterparty",
+      "description": "Central bank counterparty",
+      "type": "dimension",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "currency",
+      "description": "Currency of the swap",
+      "type": "dimension",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "term_days",
+      "description": "Term of the swap in days",
+      "type": "integer",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "amount",
+      "description": "Amount of the swap",
+      "type": "double",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "interest_rate",
+      "description": "Interest rate on the swap in percent",
+      "type": "double",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "is_small_value",
+      "description": "Indicator for small value swaps",
+      "type": "boolean",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "last_updated",
+      "description": "Timestamp when the record was last updated",
+      "type": "timestamp",
+      "nullable": true,
+      "unique": false
+    }
+  ]
+}

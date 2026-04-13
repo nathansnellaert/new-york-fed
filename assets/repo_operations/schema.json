@@ -1,0 +1,171 @@
+{
+  "id": "ny_fed_repo_operations",
+  "title": "NY Fed Repo and Reverse Repo Operations",
+  "description": "Federal Reserve Bank of New York repo and reverse repo operations including overnight and term operations for monetary policy implementation",
+  "license": "Other",
+  "source_id": "new_york_fed",
+  "source_code": "https://github.com/subsets-platform/new-york-fed",
+  "columns": [
+    {
+      "id": "operation_date",
+      "description": "Date when the operation was conducted",
+      "type": "date",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "operation_id",
+      "description": "Unique identifier for the operation",
+      "type": "string",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "operation_type",
+      "description": "Type of operation (Repo or Reverse Repo)",
+      "type": "dimension",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "operation_method",
+      "description": "Auction method (Fixed Rate, Multiple Price, Single Price)",
+      "type": "dimension",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "settlement_date",
+      "description": "Date when the operation settles",
+      "type": "date",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "maturity_date",
+      "description": "Date when the operation matures",
+      "type": "date",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "term",
+      "description": "Term classification (Overnight, Term)",
+      "type": "dimension",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "term_calendar_days",
+      "description": "Term length in calendar days",
+      "type": "integer",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "settlement_type",
+      "description": "Settlement type (Same Day, Next Day)",
+      "type": "dimension",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "security_type",
+      "description": "Security type (Treasury, Agency, Mortgage-Backed, SRF)",
+      "type": "dimension",
+      "nullable": false,
+      "unique": false
+    },
+    {
+      "id": "amount_submitted",
+      "description": "Amount submitted for this security type in dollars",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "amount_accepted",
+      "description": "Amount accepted for this security type in dollars",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "total_amount_submitted",
+      "description": "Total amount submitted across all security types",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "total_amount_accepted",
+      "description": "Total amount accepted across all security types",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "participating_counterparties",
+      "description": "Number of participating counterparties",
+      "type": "integer",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "accepted_counterparties",
+      "description": "Number of counterparties with accepted bids",
+      "type": "integer",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "offering_rate",
+      "description": "Offering rate for fixed rate operations in percent",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "award_rate",
+      "description": "Award rate in percent",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "weighted_average_rate",
+      "description": "Weighted average rate in percent",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "minimum_bid_rate",
+      "description": "Minimum bid rate in percent",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "maximum_bid_rate",
+      "description": "Maximum bid rate in percent",
+      "type": "double",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "release_time",
+      "description": "Time when operation was released",
+      "type": "string",
+      "nullable": true,
+      "unique": false
+    },
+    {
+      "id": "close_time",
+      "description": "Time when operation closed",
+      "type": "string",
+      "nullable": true,
+      "unique": false
+    }
+  ]
+}
