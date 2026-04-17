@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 import httpx
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 import pyarrow as pa
-from subsets_utils import save_raw_json, load_raw_json, load_state, save_state, overwrite, publish, validate
+from subsets_utils import save_raw_json, load_raw_json, overwrite, publish, validate
 
 BASE_URL = "https://markets.newyorkfed.org/api"
 DATASET_ID = "nyf_ambs_operations"
@@ -123,21 +123,11 @@ def test(table: pa.Table) -> None:
 
 def run():
     """Ingest and transform AMBS operations."""
-    # Ingest
+    # Ingest - always fetch full history since we use overwrite (detail records
+    # lack a natural unique key for merge).
     print("Fetching NY Fed AMBS operations...")
-    state = load_state("ambs_operations")
-    last_date = state.get("last_date")
-
-    if last_date:
-        start_date = datetime.strptime(last_date, "%Y-%m-%d").date() + timedelta(days=1)
-    else:
-        start_date = datetime(2020, 1, 1).date()
-
+    start_date = datetime(2020, 1, 1).date()
     end_date = datetime.now().date()
-
-    if start_date > end_date:
-        print("  No new AMBS operations data to fetch")
-        return
 
     print(f"  Fetching from {start_date} to {end_date}")
 
@@ -206,16 +196,6 @@ def run():
     test(table)
     overwrite(table, DATASET_ID)
     publish(DATASET_ID, METADATA)
-
-    if auctions:
-        max_date = None
-        for auction in auctions:
-            if auction.get("operationDate"):
-                op_date = datetime.strptime(auction["operationDate"], "%Y-%m-%d").date()
-                if max_date is None or op_date > max_date:
-                    max_date = op_date
-        if max_date:
-            save_state("ambs_operations", {"last_date": max_date.strftime("%Y-%m-%d")})
 
 
 NODES = {
