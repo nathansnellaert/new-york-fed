@@ -181,7 +181,7 @@ def run():
     table = pa.Table.from_pylist(records, schema=SCHEMA)
 
     test(table)
-    merge(table, DATASET_ID, key=["trade_date", "settlement_date", "maturity_date", "currency"])
+    merge(table, DATASET_ID, key=["trade_date", "settlement_date", "maturity_date", "currency", "counterparty"])
     publish(DATASET_ID, METADATA)
 
     if operations:
