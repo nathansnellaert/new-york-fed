@@ -3,36 +3,52 @@ name: Run Connector
 on:
   workflow_dispatch:
     inputs:
+      dag_target:
+        description: 'Run specific DAG nodes (comma-separated)'
+        required: false
+        type: string
+      dag_on_failure:
+        description: 'Failure behavior: crash (default) or continue'
+        required: false
+        type: string
+        default: 'crash'
+      run_id:
+        description: 'Run ID for grouping continuation invocations'
+        required: false
+        type: string
   schedule:
     - cron: '0 14 * * *'  # Daily at 2 PM UTC (9 AM ET, after Fed publishes data)
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   run:
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-    
-    - name: Set up Python
-      uses: actions/setup-python@v5
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
       with:
         python-version: '3.11'
-    
-    - name: Install uv
-      run: pip install uv
-    
-    - name: Install dependencies
-      run: uv pip install --system -r pyproject.toml
-    
+    - uses: astral-sh/setup-uv@v4
+      with:
+        enable-cache: true
+    - run: uv sync
+
     - name: Run connector
+      run: uv run python -m src.subsets_utils.runner
       env:
-        SUBSETS_API_KEY: ${{ secrets.SUBSETS_API_KEY }}
+        PYTHONUNBUFFERED: 1
+        CI: 'true'
+        ENABLE_LOGGING: 'true'
+        CONNECTOR_NAME: 'new-york-fed'
+        R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
         R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
         R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-        R2_ENDPOINT_URL: ${{ secrets.R2_ENDPOINT_URL }}
         R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
         DAG_TARGET: ${{ inputs.dag_target }}
         DAG_ON_FAILURE: ${{ inputs.dag_on_failure }}
-      run: python main.py
+        RUN_ID: ${{ inputs.run_id }}
